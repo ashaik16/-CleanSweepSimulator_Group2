@@ -34,5 +34,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-              cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/sensor-simulator/
+              cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/cleansweep/
+              mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
+              
+               cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/sensor-simulator/
+              mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
+              
+               cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/control-system/
               mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
