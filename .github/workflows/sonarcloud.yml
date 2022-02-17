@@ -42,4 +42,5 @@ jobs:
               mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
               
                cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/control-system/
+              mvn install:install-file -Dfile=/home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/sensor-simulator/target/sensor-simulator-0.0.1-SNAPSHOT.jar -DgroupId=com.group9 -DartifactId=sensor-simulator -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar 
               mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
