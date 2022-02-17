@@ -33,20 +33,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          
-      - name: Step 3 - Github Actions Building Clean Sweep Maven Project
         run: |
               cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/cleansweep/
               mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
               
-      - name: Step 4 - Github Actions Building Sensor-Simulator Maven Project
-        run: |     
                cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/sensor-simulator/
-               mvn install:install-file -Dfile=/home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/cleansweep/target/cleansweep-0.0.1-SNAPSHOT.jar -DgroupId=com.group9 -DartifactId=cleansweep -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar 
-               mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
-               
-      - name: Step 5 - Github Actions Building Control System Maven Project
-        run: |    
+              mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
+              
                cd /home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/control-system/
-               mvn install:install-file -Dfile=/home/runner/work/CleanSweepSimulator_Group2/CleanSweepSimulator_Group2/sensor-simulator/target/sensor-simulator-0.0.1-SNAPSHOT.jar -DgroupId=com.group9 -DartifactId=sensor-simulator -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar 
-               mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
+              mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ashaik16_CleanSweepSimulator_Group2
